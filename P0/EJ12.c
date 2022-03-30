@@ -13,7 +13,7 @@
 			 }
 		 }
 	 } else{
-		 printf("El valor de p debe ser numericamente mayor al valor de n\n");
+		 printf("El valor de p debe ser numericamente mayor o igual al valor de n\n");
 		 return 0;
 	 }
 	 return x1;
@@ -23,6 +23,6 @@ int main(void){
 	setbuf(stdout, 0);
 	unsigned x = 147, y = 177;
 	int p = 3, n = 3;
-	printf("%d", setbits(x, p, n, y));
+	printf("%d\n", setbits(x, p, n, y));
 	return 0;
 }
