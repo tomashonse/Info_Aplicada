@@ -52,6 +52,18 @@ void turn_off(char op){
 	}
 }
 
+void toggle(char op){
+	if(op == 'r' || op == 'R'){
+			PTE->PTOR |= 1<<29;
+		} else if(op == 'g' || op == 'G'){
+			PTD->PTOR |= 1<<5;
+		}
+}
+
+void delay(int n){
+	for(int i = 0; i < n; i++);
+}
+
 int check(char op){
 	int ret;
 	if(op == 'r' || op == 'R'){
@@ -60,9 +72,9 @@ int check(char op){
 		ret = PTD->PDIR & 1<<5;
 	}
 	if(op == '1'){
-		ret = PTC->PDIR & 1<<3;
+		ret = !(PTC->PDIR & 1<<3);
 	} else if(op == '2'){
-		ret = PTC->PDIR & 1<<12;
+		ret = !(PTC->PDIR & 1<<12);
 	}
 	return ret;
 }
